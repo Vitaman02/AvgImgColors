@@ -15,6 +15,9 @@ print("Total frames to read:", totalframes//24)
 fps = cap.get(cv2.CAP_PROP_FPS)
 print("FPS:", fps)
 
+print("Skipping already read frames...")
+for i in range(493*int(fps)):
+    cap.read()
 loops = np.int64(0)
 x = np.int64(0)
 frame_counter = np.int64(0)
@@ -39,8 +42,7 @@ with open("Average Frame Values.txt", "a") as file:
         avg_blue = blue // pixels
 
         file.write(f"Frame{x}:{avg_red},{avg_green},{avg_blue}\n")
-        if loops % 1000 == 0:
-            print("Current frame:", frame_counter)
+        print("Current frame:", frame_counter)
         frame_counter += int(fps)
         cap.set(1, frame_counter)
         succes, image = cap.read()
