@@ -1,0 +1,6 @@
+Total pixels:852887
+Total red pixels:276772
+Total green pixels:310779
+Total blue pixels:265336
+
+Average Color of All Frames:#1f231e
